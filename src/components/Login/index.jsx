@@ -5,13 +5,11 @@ import { roles } from "../../constants";
 import useAuth from "../../hooks/useAuth";
 
 const LoginContainer = styled.div`
-  position: absolute;
-  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-
+  min-height: inherit;
   & > *:not(:last-child) {
     margin-bottom: 0.5rem;
   }

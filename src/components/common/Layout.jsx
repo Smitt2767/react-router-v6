@@ -6,11 +6,7 @@ import Header from "./Header";
 
 const Body = styled.div`
   min-height: calc(100vh - 90px);
-  height: 100%;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const Layout = () => {

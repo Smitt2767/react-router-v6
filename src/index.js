@@ -1,11 +1,17 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import App from "./App";
+
+import Loader from "./components/common/Loader";
+
+const App = lazy(() => import("./App"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <BrowserRouter>
-    <App />
+    <Suspense fallback={<Loader />}>
+      <App />
+    </Suspense>
   </BrowserRouter>
 );
