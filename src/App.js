@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Outlet, Route, Routes } from "react-router-dom";
+import { Navigate, Outlet, Route, Routes, useLocation } from "react-router-dom";
 
 import { createGlobalStyle } from "styled-components";
 import About from "./components/About";
@@ -97,8 +97,18 @@ const Public = (route) => {
 const Private = (route) => {
   const { user } = useAuth();
   const { allowedRoles, component: Component } = route;
+  const location = useLocation();
 
-  if (!!!user) return <Navigate to="/login" replace />;
+  if (!!!user)
+    return (
+      <Navigate
+        to="/login"
+        replace
+        state={{
+          from: location.pathname,
+        }}
+      />
+    );
 
   const currentUserRole = user.role;
 

@@ -13,6 +13,7 @@ const RequiredAuth = () => {
         state={{
           from: location.pathname,
         }}
+        replace
       />
     );
 
