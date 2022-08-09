@@ -37,7 +37,8 @@ const Login = () => {
       name: "Anonymous",
       role: roles.customer,
     });
-    navigate(redirectTo || "/customer");
+    const redirectURL = redirectTo.startsWith("/admin") ? "" : redirectTo;
+    navigate(redirectURL || "/customer");
   };
 
   const handleAdminLogin = () => {
@@ -45,7 +46,8 @@ const Login = () => {
       name: "admin",
       role: roles.admin,
     });
-    navigate(redirectTo || "/admin");
+    const redirectURL = redirectTo.startsWith("/customer") ? "" : redirectTo;
+    navigate(redirectURL || "/admin");
   };
 
   return (
